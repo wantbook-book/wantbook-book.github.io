@@ -49,7 +49,7 @@ An **object-oriented**, multitasking OS. Low-level C but High-level OC language 
 **所以说 Mac OS X 算是很正统 Unix 的了**
 
 - #### POSIX
-可移植操作系统接口, Portable Operating System Interface, is a family of standards specified by the IEEE from maintaining compatibility between OS, defines the API along with Command Line Shells and utility interfaces, for software comaptibility with variants of Unix and other OS.
+	可移植操作系统接口, Portable Operating System Interface, is a family of standards specified by the IEEE from maintaining compatibility between OS, defines the API along with Command Line Shells and utility interfaces, for software comaptibility with variants of Unix and other OS.
 	- Fully POSIX compliant:
 		- OS X
 		- QNX OS (BlackBerry)
@@ -147,7 +147,7 @@ Android is a mobile OS based on **Linux Kernel**, so it's definitely **Unix-like
 Android's source code is released by Google under open source licenses, although most Android devices ultimately ship with a combination of open source and proprietary software, including proprietary software developed and licensed by Google *(GMS are all proprietary)*  
 
 #### Android Kernel
-  
+
 Android's kernel is based on one of the Linux kernel's long-term support (LTS) branches.   
 
 **Android's variant of the Linux kernel** has further architectural changes that are implemented by Google outside the typical Linux kernel development cycle, and, certain features that Google contributed back to the Linux kernel. Google maintains a public code repo that contains their experimental work to re-base Android off the latest stable Linux versions.

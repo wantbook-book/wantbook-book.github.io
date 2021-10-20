@@ -16,7 +16,7 @@ tags:
 Hi all  
 这里是鬼栈的离职信。
 
-![img](/img/in-post/post-c-u-ali-team.png)
+![img](../img/in-post/post-c-u-ali-team.png)
 
 
 ## Review
@@ -98,7 +98,7 @@ Hi all
 * 知乎：@黄玄
 * 博客：<http://huangxuan.me>
 
- 
+
 **Hey，这里是编号 79717**
- 
+
 ![img](/img/in-post/post-c-u-ali-079717.png)

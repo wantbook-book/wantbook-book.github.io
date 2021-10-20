@@ -17,11 +17,9 @@ Though the overall experience is pretty smooth, many quirks about Spacemacs are 
 
 Yes this is more like a note publishing online for the purpose of "on-demand accessible". So don't expect good writing anyways.
 
-
 ### Vim-binding
 
 Choose `evil`!
-
 
 ### Airline
 
