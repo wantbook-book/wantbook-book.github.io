@@ -26,7 +26,7 @@ tags:
 
 windows下，打开计算机右键属性，高级系统管理，环境变量，在Path里添加conda/Script的路径，如**D:\path\to\anaconda\Scripts**
 
-![image-20211020133600437](htpps://github.com/\images\image-20211020133600437.png)
+![image-20211020133600437](\_posts\images\image-20211020133600437.png)
 
 输入conda，如图则为成功
 
