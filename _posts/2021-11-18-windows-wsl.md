@@ -2,7 +2,7 @@
 layout:     post
 title:      "windows wsl"
 subtitle:   "安装 go"
-date:       2021-11-118 12:00:00
+date:       2021-11-18 12:00:00
 author:     "Hannibal"
 catalog: false
 header-style: text
