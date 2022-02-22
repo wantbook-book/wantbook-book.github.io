@@ -1,0 +1,117 @@
+---
+layout:     post
+title:      "使用docker部署服务器后端 api"
+subtitle:   ""
+date:       2021-02-17 12:00:00
+author:     "Hannibal"
+catalog: false
+header-style: text
+tags:
+  - 
+---
+
+## 目的
+
+学习docker基本使用方法；在服务器用docker容器运行后端 api
+
+## 环境
+
+服务器 centos 7.6; 本地 ubuntu 20.04
+
+## docker 安装
+
+参考[安装教程](https://docs.docker.com/engine/install/centos/)
+
+[centos docker安装](https://yeasy.gitbook.io/docker_practice/install/centos)
+
+## 创建 docker 镜像
+
+### dockerigore
+
+```bash
+#不需要把包编译进去
+#如node项目,ignore node_modules 目录
+node_modules
+*.jpg
+```
+
+
+
+### 创建Dockerfile
+
+```dockerfile
+
+ARG GO_VERSION=1.16
+
+FROM golang:${GO_VERSION}-alpine AS builder
+
+RUN apk update && apk add alpine-sdk git && rm -rf /var/cache/apk/*
+
+RUN mkdir -p /api
+WORKDIR /api
+
+COPY go.mod .
+COPY go.sum .
+RUN go mod download
+
+COPY . .
+RUN go build -o ./app /api
+
+FROM alpine:latest
+
+RUN apk update && apk add ca-certificates && rm -rf /var/cache/apk/*
+
+RUN mkdir -p /api
+WORKDIR /api
+COPY --from=builder /api/app .
+#COPY --from=builder /api/test.db .
+
+EXPOSE 9000
+ENTRYPOINT ["./app"]
+
+```
+
+### build
+
+`docker build -t myapp3-backend .`
+
+## 上传到dockerhub
+
+### tag
+
+`docker tag myapp3-backend sufwkevin/myapp3-backend:0.0.1`
+
+### push
+
+`docker push sufwkevin/myapp3-backend:0.0.1`
+
+没有登录应该需要登录
+
+`docker login -u sufwkevin` 根据提示输入密码
+
+## docker-compose
+
+一个容器运行mysql数据库，一个容器运行gin服务
+
+## 在服务器运行docker镜像
+
+`docker run -dp 9000:9000 sufwkevin/myapp3-backend:0.0.1`
+
+使用浏览器进行访问，发现无法访问
+
+查看端口状态，`netstat -pan | grep 9000`
+
+![image-20220219183123983](images/image-20220219183123983.png)
+
+发现9000正在LISTEN（工作中）
+
+打开腾讯云服务器控制台添加入站端口，填写9000端口。
+
+成功！
+
+## 致谢
+
+
+
+
+

@@ -1,0 +1,45 @@
+---
+layout:     post
+title:      "react native axios"
+subtitle:   ""
+date:       2021-01-27 12:00:00
+author:     "Hannibal"
+catalog: false
+header-style: text
+tags:
+  - 
+---
+
+## 目的
+
+使用axios在安卓虚拟机上向本地主机发送http请求
+
+## 环境
+
+ubuntu 20.04
+
+### 安装axios
+
+起初使用yarn进行包管理，可能因为我系统上的yarn好像有好几个，有点问题，安装完axios，无法在react-native项目里发出请求，没有错误也没有响应，语句执行到axios后面的就没了，可能panic了，但我也不知道如何查看。
+
+所以选用nvm版本管理下的node的npm进行包管理，```npm install axios```
+
+### 摸清服务url
+
+安卓虚拟机向localhost发送请求是向虚拟机自己的端口发送，得用其提供的映射10.0.2.2 ip映射到本地主机的localhost
+
+```javascript
+axios
+  .get('http://10.0.2.2:9000/api/ping')
+  .then(res => {
+    console.log(res.data);
+  })
+  .catch(err => {
+    console.log(err);
+  });
+```
+
+## 致谢
+
+[Mobx学习](https://segmentfault.com/a/1190000039808886)
+

@@ -1,0 +1,43 @@
+---
+layout:     post
+title:      "使用docker部署服务器后端 api"
+subtitle:   ""
+date:       2021-02-17 12:00:00
+author:     "Hannibal"
+catalog: false
+header-style: text
+tags:
+  - 
+---
+
+## 目的
+
+学习docker基本使用方法；在服务器用docker容器运行后端 api
+
+## 环境
+
+服务器 centos 8; 本地 ubuntu 20.04
+
+## docker 安装
+
+参考[安装教程](https://docs.docker.com/engine/install/centos/)
+
+## 创建 docker 镜像
+
+### 创建Dockerfile
+
+```dockerfile
+```
+
+### build
+
+`docker build .`
+
+###
+
+## 致谢
+
+
+
+
+
