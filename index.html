@@ -1,0 +1,422 @@
+<!doctype html>
+<html>
+
+<head>
+<title>Wenkai Fang's Homepage</title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="keywords" content="Wenkai Fang"> 
+<meta name="description" content="Wenkai Fang's Homepage">
+<link rel="stylesheet" href="css/jemdoc.css" type="text/css" />
+<link rel="shortcut icon" href="images/favicon.ico">
+
+
+<!-- Show more content -->
+<script type="text/javascript">
+    function toggle_vis(id) {
+        // var e = document.getElementById(id);
+        var e = document.getElementsByClassName(id);
+        var showText = document.getElementById("showText");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].style.display == "none") {
+                e[i].style.display = "inline";
+                showText.innerHTML = "[Show less]";
+            } else {
+                e[i].style.display = "none";
+                showText.innerHTML = "[Show more]";
+            }
+        }
+    }
+
+    function toggle_research_vis(target, tabElement) {
+        var is_current_summary = 0;
+
+        var e = document.getElementsByClassName("research_summary");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                if (e[i].style.display == "inline") {
+                    is_current_summary = 1;
+                } else {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("progress_button");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target + "_button") {
+                if (is_current_summary == 0) {
+                    e[i].style.display = "inline";
+                }
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("goal_tabs");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id != target + "_goal_tabs") {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_research_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "research_tab";
+        }
+        tabElement.className = "highlight_research_tab"
+    }
+
+    function toggle_goal_vis(id, goal_tabs_id, goal) {
+        var e = document.getElementById(id);
+        e.style.display = "none";
+        var goal_tabs = document.getElementById(goal_tabs_id);
+        goal_tabs.style.display = "inline";
+
+        var goal_tab = document.getElementById(goal + "_tab");
+        toggle_goal_progress_vis(goal_tab);
+        // add_goal_progress_div(goal);
+    }
+
+    function toggle_goal_progress_vis(tabElement) {
+        var target = tabElement.id;
+        target = target.substring(0, target.length - 4);
+
+        var e = document.getElementsByClassName("goal_progress");
+        for (var i = 0; i < e.length; i++) {
+            if (e[i].id == target) {
+                e[i].style.display = "inline";
+            } else {
+                e[i].style.display = "none";
+            }
+        }
+
+        var e = document.getElementsByClassName("highlight_goal_tab");
+        for (var i = 0; i < e.length; i++) {
+            e[i].className = "goal_tab";
+        }
+        tabElement.className = "highlight_goal_tab"
+
+        add_goal_progress_div(target);
+    }
+
+    function add_goal_progress_div(goal) {
+        var e = document.getElementById(goal);
+        if (e && e.children.length == 0) {
+            var children = Array.from(document.getElementsByClassName(goal));
+            for (var i = 0; i < children.length; i++) {
+                var cloned_div = children[i].cloneNode(true);
+                cloned_div.className = "publication_container";
+                e.appendChild(cloned_div);
+            }
+        }
+    }
+</script>
+
+</head>
+
+
+<body>
+
+<div id="layout-content" style="margin-top:25px">
+
+
+<table>
+	<tbody>
+		<tr>
+			<td width="75%">
+				<div id="toptitle">
+					<h1>Wenkai Fang (方文凯)<h1>
+				</div>
+
+                <h3 class="title">Ph.D. candidate</h3>
+
+                <p>
+                    The College of Computer Science and Technology, Zhejiang University</br>
+                    Visual Intelligence and Pattern Analysis (VIPA) Group</br>
+                    Zhejiang, China, 310000</br>
+					</br>
+                    Email: wenkfang at zju dot edu dot cn </br>
+				</p>
+			</td>
+			<td width="25%">
+				<img src="images/fangwenkai.jpg" width="80%"/>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<h2>Biography</h2> 
+
+<div style="display: flex">
+    <p>
+        I am currently a first-year Ph.D. candidate in the <a href="http://www.en.cs.zju.edu.cn/">College of Computer Science and Technology</a> at <a href="https://www.zju.edu.cn/english/">Zhejiang University</a> and a member of <a href="https://www.vipazoo.cn/">VIPA Group</a>, supervised by Prof. <a href="https://scholar.google.com/citations?user=7oLbhAwAAAAJ" target="_blank" style="text-decoration: none">Mingli Song</a>. In 2020, I received my B.Eng. degree in Agricultural Engineering from <a href="https://www.zju.edu.cn/english/">Zhejiang University</a> and was selected as an Outstanding Graduate of Zhejiang Province.
+    </p>
+</div>
+
+<div style="display: flex; margin-bottom: -10px">
+    <p>
+        My research focuses on <strong>leveraging reinforcement learning to enhance the reasoning capabilities of large language models (LLMs)</strong> and on <strong>building general-purpose intelligent agents</strong>. I aim to push forward the real-world deployment of LLM-powered agents—enabling them to serve society, improve daily life, and contribute to social good.
+        </br></br><strong>Please feel free to contact me if you are interested in my research :)</strong></br>
+    </p>
+</div>
+
+<!-- <h2>News</h2>
+
+<ul>
+    <li>
+        <div class="marker">[Jun 2025] One paper was accepted by <a href="https://iccv.thecvf.com/Conferences/2025" target="_blank" style="text-decoration: none">&nbsp;ICCV 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[May 2025] Two papers were accepted by <a href="https://2025.aclweb.org/" target="_blank" style="text-decoration: none">&nbsp;ACL 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Apr 2025] Two papers were accepted by <a href="https://2025.ijcai.org/" target="_blank" style="text-decoration: none">&nbsp;IJCAI 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Jan 2025] One paper was accepted by <a href="https://iclr.cc/Conferences/2025" target="_blank" style="text-decoration: none">&nbsp;ICLR 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Jan 2025] One paper was accepted by <a href="https://www2025.thewebconf.org/" target="_blank" style="text-decoration: none">&nbsp;WWW 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Jan 2025] One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6979" target="_blank" style="text-decoration: none">&nbsp;IEEE Transactions on Intelligent Transportation Systems</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Dec 2024] Four papers were accepted by <a href="https://aaai.org/conference/aaai/aaai-25/" target="_blank" style="text-decoration: none">&nbsp;AAAI 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Nov 2024] One paper was accepted by <a href="https://kdd2025.kdd.org/" target="_blank" style="text-decoration: none">&nbsp;KDD 2025</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Sep 2024] One paper was accepted by <a href="https://nips.cc/Conferences/2024" target="_blank" style="text-decoration: none">&nbsp;NeurIPS 2024</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[May 2024] One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" target="_blank" style="text-decoration: none">&nbsp;IEEE Transactions on Knowledge and Data Engineering</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[May 2024] Two papers were accepted by <a href="https://kdd2024.kdd.org/" target="_blank" style="text-decoration: none">&nbsp;KDD 2024</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[May 2024] One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=34" target="_blank" style="text-decoration: none">&nbsp;IEEE Transactions on Pattern Analysis and Machine Intelligence</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Apr 2024] One paper was accepted by <a href="https://ijcai24.org/" target="_blank" style="text-decoration: none">&nbsp;IJCAI 2024</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Mar 2024] One paper was accepted by <a href="https://www.sciencedirect.com/journal/neural-networks" target="_blank" style="text-decoration: none">&nbsp;Neural Networks</a>.</div>
+    </li>
+    <li>
+        <div class="marker">[Jan 2024] One paper was accepted by <a href="https://www2024.thewebconf.org/" target="_blank" style="text-decoration: none">&nbsp;WWW 2024</a>.</div>
+    </li>
+
+
+    <div class="news" style="display:none">
+        <li>
+            <div class="marker">[Sep 2023] One paper was accepted by <a href="https://nips.cc/Conferences/2023" target="_blank" style="text-decoration: none">&nbsp;NeurIPS 2023</a>.</div>
+        </li>
+        <li>
+            <div class="marker">[Jul 2023] One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=59" target="_blank" style="text-decoration: none">&nbsp;IEEE Transactions on Power Systems</a>.</div>
+        </li>
+        <li>
+            <div class="marker">[Jul 2023] One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=6221021" target="_blank" style="text-decoration: none">&nbsp;IEEE Transactions on Systems, Man and Cybernetics: Systems</a>.</div>
+        </li>
+        <li>
+            <div class="marker">[May 2023] One paper was accepted by <a href="https://kdd.org/kdd2023/" target="_blank" style="text-decoration: none">&nbsp;KDD 2023</a>.</div>
+        </li>
+        <li>
+            <div class="marker">[Nov 2022] One paper was accepted by <a href="https://aaai-23.aaai.org/" target="_blank" style="text-decoration: none">&nbsp;AAAI 2023</a>.</div>
+        </li>
+        <li>
+            <div class="marker">[Sep 2022] One paper was accepted by <a href="https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=69" target="_blank" style="text-decoration: none">&nbsp;IEEE Transactions on Knowledge and Data Engineering</a>.</div>
+        </li>
+    </div>
+</ul>
+
+<div class="show_button">
+    <a href="javascript:toggle_vis('news')" id="showText">[Show more]</a>
+</div> -->
+
+<!-- <h2>Highlight Publications</h2>
+
+<p><sup>*</sup> denotes equal contribution, and <sup>✉</sup> denotes the corresponding author.</p> -->
+
+
+<!-- <div class="publication_container">
+    <div class="publication_image">
+        <img src="images/A2PO.png">
+    </div>
+    <div class="publication_title">
+        <b>A2PO: Towards Effective Offline Reinforcement Learning from an Advantage-aware Perspective</b><br>
+        Yunpeng Qing, <b><u>Shunyu Liu<sup>✉</sup></u></b>, Jingyuan Cong, Kaixuan Chen, Yihe Zhou, Mingli Song<br>
+        Advances in Neural Information Processing Systems (<b>NeurIPS</b>), 2024<br>
+        <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/333a7697dbb67f09249337f81c27d749-Abstract-Conference.html" target="_blank" style="text-decoration: none">[Paper]</a>
+        <a href="https://arxiv.org/abs/2403.07262" target="_blank" style="text-decoration: none">[arXiv]</a>
+        <a href="https://github.com/Plankson/A2PO" target="_blank" style="text-decoration: none">[Code]</a>
+    </div>
+</div> -->
+
+
+<h2>Preprints</h2>
+
+<!-- <p>For the most up-to-date list, please visit my <a href="https://scholar.google.com.hk/citations?user=4U-X6d4AAAAJ&hl=en">Google Scholar</a>.</p> -->
+
+
+
+<div class="publication_container">
+    <div class="publication_title">
+        <b>SeRL: Self-Play Reinforcement Learning for Large Language Models with Limited Data</b><br>
+        <b><u>Wenkai Fang</u></b>, Shunyu Liu<sup>✉</sup>, Yang Zhou, Kongcheng Zhang, Tongya Zheng, Kaixuan Chen, Mingli Song, Dacheng Tao<br>
+        arXiv preprint arXiv:2505.20347, 2025<br>
+        <a href="https://arxiv.org/abs/2505.20347" target="_blank" style="text-decoration: none">[arXiv]</a> 
+        <a href="https://github.com/wantbook-book/SeRL" target="_blank" style="text-decoration: none">[Code]</a>
+    </div>
+</div>
+
+
+<div class="publication_container">
+    <div class="publication_title">
+        <b>A Survey of Direct Preference Optimization</b><br>
+        Shunyu Liu, <b><u>Wenkai Fang</u></b>, Zetian Hu, Junjie Zhang, Yang Zhou, Kongcheng Zhang, Rongcheng Tu, Ting-En Lin, Fei Huang, Mingli Song, Yongbin Li, Dacheng Tao<sup>✉</sup><br>
+        arXiv preprint arXiv:2503.11701, 2025<br>
+        <a href="https://arxiv.org/abs/2503.11701" target="_blank" style="text-decoration: none">[arXiv]</a> 
+        <a href="https://github.com/liushunyu/awesome-direct-preference-optimization" target="_blank" style="text-decoration: none">[Code]</a>
+    </div>
+</div>
+
+
+
+<div class="publication_container">
+    <div class="publication_title">
+        <b>Reasoning with Reinforced Functional Token Tuning</b><br>
+        Kongcheng Zhang, Qi Yao, Baisheng Lai, Jiaxing Huang, <b><u>Wenkai Fang</u></b>, Dacheng Tao, Mingli Song, Shunyu Liu<sup>✉</sup><br>
+        arXiv preprint arXiv:2502.13389, 2025<br>
+        <a href="https://arxiv.org/abs/2502.13389" target="_blank" style="text-decoration: none">[arXiv]</a> 
+        <a href="https://github.com/sastpg/RFTT" target="_blank" style="text-decoration: none">[Code]</a>
+    </div>
+</div>
+
+
+
+
+<h2>Publications</h2>
+
+<p><sup>*</sup> denotes equal contribution, and <sup>✉</sup> denotes the corresponding author.</p>
+
+
+<div class="newline_bg">
+    <h3>2025</h3>
+</div>
+
+
+<div class="publication_container">
+    <div class="publication_image">
+        <img src="images/odyssey.png">
+    </div>
+    <div class="publication_title">
+        <b>Odyssey: Empowering Minecraft Agents with Open-World Skills</b><br>
+        Shunyu Liu<sup>*</sup>, Yaoru Li<sup>*</sup>, Kongcheng Zhang<sup>*</sup>, Zhenyu Cui<sup>*</sup>, <b><u>Wenkai Fang<sup>*</sup></u></b>, Yuxuan Zheng, Tongya Zheng, Mingli Song<sup>✉</sup><br>
+        International Joint Conference on Artificial Intelligence (<b>IJCAI</b>), 2025<br>
+        <a href="https://arxiv.org/abs/2407.15325" target="_blank" style="text-decoration: none">[arXiv]</a>
+        <a href="https://github.com/zju-vipa/Odyssey" target="_blank" style="text-decoration: none">[Code]</a>
+    </div>
+</div>
+
+
+
+<!-- <div class="newline_bg">
+    <h3>2024</h3>
+</div> -->
+
+
+
+<h2>Honors</h2>
+
+<h3>Awards</h3>
+<ul>
+    <li>
+        <div class="marker">Outstanding Graduate of Zhejiang Province</div> <div>2024</div>
+    </li>
+    <li>
+        <div class="marker">Outstanding Graduate at the University Level of Zhejiang University</div> <div>2024</div>
+    </li>
+    <li>
+        <div class="marker">Two-time recipient of the First-Class Scholarship at Zhejiang University</div> <div>2021-2023</div>
+    </li>
+    <li>
+        <div class="marker">Three-time recipient of the Zhejiang Provincial Government Scholarship</div> <div>2020-2023</div>
+    </li>
+    <li>
+        <div class="marker">Third-Class Scholarship recipient at Zhejiang University</div> <div>2020-2021</div>
+    </li>
+    
+
+
+
+    
+</ul>
+
+<h3>Competition</h3>
+<ul>
+    <li>
+        <div class="marker">Champion of the Advanced Group in the ASABE International Student Agricultural Robotics </br>Competition</div> <div>2023</div>
+    </li>
+    <li>
+        <div class="marker">Second Prize in the Zhejiang Provincial Physics Innovation Competition</div> <div>2022</div>
+    </li>
+    <li>
+        <div class="marker">National First Prize in the China Agricultural Robotics Competition</div> <div>2021</div>
+    </li>
+    <li>
+        <div class="marker">National Special Prize in the 5th “Yunfeng Cup” National Green Supply Chain and Reverse Logistics Design Competition</div> <div>2021</div>
+    </li>
+</ul>
+
+<!-- <h2>Academic Services</h2>
+
+<h3>Journal Reviewer</h3>
+<ul>
+    <li>
+        <div class="marker">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</div>
+    </li>
+    <li>
+        <div class="marker">IEEE Transactions on Knowledge and Data Engineering (TKDE)</div>
+    </li>
+    <li>
+        <div class="marker">IEEE Transactions on Systems, Man and Cybernetics: Systems (TSMC)</div>
+    </li>
+    <li>
+        <div class="marker">Information Sciences (INS)</div>
+    </li>
+    <li>
+        <div class="marker">Autonomous Agents and Multi-Agent Systems (AAMAS)</div>
+    </li>
+    <li>
+        <div class="marker">International Journal of Electrical Power and Energy Systems (IJEPES)</div>
+    </li>
+</ul>
+
+<h3>Conference Reviewer</h3>
+<ul>
+    <li>
+        <div class="marker">NeurIPS 2025, ICML 2025, ICLR 2025, KDD 2025, ICCV 2025, IJCAI 2025</div>
+    </li>
+    <li>
+        <div class="marker">NeurIPS 2024, KDD 2024</div>
+    </li>
+    <li>
+        <div class="marker">ICLR 2023, ECAI 2023</div>
+    </li>
+</ul> -->
+
+<div style="margin-top: 40px; margin-bottom: 40px; text-align: center;">
+    <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=c4c4c4&w=380&t=tt&d=KOlnL3y7WMeXUAk2T1_Egyi66BryP9YpMlrEs5I7WNQ&co=ffffff&ct=808080&cmo=4182d1&cmn=dc3545"></script>
+</div>
+
+<p>Last updated on Jul 2025. Webpage template borrowed from <a href="https://pengsida.net/">Prof. Sida Peng</a>.</p>
+
+
+</body>
+</html>
