@@ -1,388 +1,314 @@
 <!doctype html>
-<html>
-
+<html lang="en">
 <head>
-<title>Wenkai Fang's Homepage</title>
-
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="keywords" content="Wenkai Fang"> 
-<meta name="description" content="Wenkai Fang's Homepage">
-<link rel="stylesheet" href="css/jemdoc.css" type="text/css" />
-<link rel="shortcut icon" href="images/favicon.ico">
-
-
-<!-- Show more content -->
-<script type="text/javascript">
-    function toggle_vis(id) {
-        // var e = document.getElementById(id);
-        var e = document.getElementsByClassName(id);
-        var showText = document.getElementById("showText");
-        for (var i = 0; i < e.length; i++) {
-            if (e[i].style.display == "none") {
-                e[i].style.display = "inline";
-                showText.innerHTML = "[Show less]";
-            } else {
-                e[i].style.display = "none";
-                showText.innerHTML = "[Show more]";
-            }
-        }
-    }
-
-    function toggle_research_vis(target, tabElement) {
-        var is_current_summary = 0;
-
-        var e = document.getElementsByClassName("research_summary");
-        for (var i = 0; i < e.length; i++) {
-            if (e[i].id == target) {
-                if (e[i].style.display == "inline") {
-                    is_current_summary = 1;
-                } else {
-                    e[i].style.display = "inline";
-                }
-            } else {
-                e[i].style.display = "none";
-            }
-        }
-
-        var e = document.getElementsByClassName("progress_button");
-        for (var i = 0; i < e.length; i++) {
-            if (e[i].id == target + "_button") {
-                if (is_current_summary == 0) {
-                    e[i].style.display = "inline";
-                }
-            } else {
-                e[i].style.display = "none";
-            }
-        }
-
-        var e = document.getElementsByClassName("goal_tabs");
-        for (var i = 0; i < e.length; i++) {
-            if (e[i].id != target + "_goal_tabs") {
-                e[i].style.display = "none";
-            }
-        }
-
-        var e = document.getElementsByClassName("highlight_research_tab");
-        for (var i = 0; i < e.length; i++) {
-            e[i].className = "research_tab";
-        }
-        tabElement.className = "highlight_research_tab"
-    }
-
-    function toggle_goal_vis(id, goal_tabs_id, goal) {
-        var e = document.getElementById(id);
-        e.style.display = "none";
-        var goal_tabs = document.getElementById(goal_tabs_id);
-        goal_tabs.style.display = "inline";
-
-        var goal_tab = document.getElementById(goal + "_tab");
-        toggle_goal_progress_vis(goal_tab);
-        // add_goal_progress_div(goal);
-    }
-
-    function toggle_goal_progress_vis(tabElement) {
-        var target = tabElement.id;
-        target = target.substring(0, target.length - 4);
-
-        var e = document.getElementsByClassName("goal_progress");
-        for (var i = 0; i < e.length; i++) {
-            if (e[i].id == target) {
-                e[i].style.display = "inline";
-            } else {
-                e[i].style.display = "none";
-            }
-        }
-
-        var e = document.getElementsByClassName("highlight_goal_tab");
-        for (var i = 0; i < e.length; i++) {
-            e[i].className = "goal_tab";
-        }
-        tabElement.className = "highlight_goal_tab"
-
-        add_goal_progress_div(target);
-    }
-
-    function add_goal_progress_div(goal) {
-        var e = document.getElementById(goal);
-        if (e && e.children.length == 0) {
-            var children = Array.from(document.getElementsByClassName(goal));
-            for (var i = 0; i < children.length; i++) {
-                var cloned_div = children[i].cloneNode(true);
-                cloned_div.className = "publication_container";
-                e.appendChild(cloned_div);
-            }
-        }
-    }
-</script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8f9f5">
+  <meta name="description" content="Wenkai Fang, Ph.D. candidate at Zhejiang University. Research in reinforcement learning, language model reasoning, and intelligent agents.">
+  <meta property="og:title" content="Wenkai Fang · Zhejiang University">
+  <meta property="og:description" content="Reinforcement learning, language model reasoning, and intelligent agents. Research and publications by Wenkai Fang.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wantbook-book.github.io/">
+  <meta property="og:image" content="https://wantbook-book.github.io/images/fangwenkai.jpg">
+  <title>Wenkai Fang · Zhejiang University</title>
+  <link rel="canonical" href="https://wantbook-book.github.io/">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="icon" href="images/wf-logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css?v=20261124-3">
+  <script src="js/main.js?v=20261117-2" defer></script>
 </head>
-
-
 <body>
-
-<div id="layout-content" style="margin-top:25px">
-
-
-<table>
-	<tbody>
-		<tr>
-			<td width="75%">
-				<div id="toptitle">
-					<h1>Wenkai Fang (方文凯)<h1>
-				</div>
-
-                <h3 class="title">Ph.D. candidate</h3>
-
-                <p>
-                    The College of Computer Science and Technology, Zhejiang University</br>
-                    Visual Intelligence and Pattern Analysis (VIPA) Group</br>
-                    Zhejiang, China, 310000</br>
-					</br>
-                    Email: wenkfang at zju dot edu dot cn </br>
-				</p>
-			</td>
-			<td width="25%">
-				<img src="images/fangwenkai.jpg" width="80%"/>
-			</td>
-		</tr>
-	</tbody>
-</table>
-
-<h2>Biography</h2> 
-
-<div style="display: flex">
-    <p>
-        I am currently a third-year Ph.D. candidate in the <a href="http://www.en.cs.zju.edu.cn/">College of Computer Science and Technology</a> at <a href="https://www.zju.edu.cn/english/">Zhejiang University</a> and a member of <a href="https://www.vipazoo.cn/">VIPA Group</a>, supervised by Prof. <a href="https://scholar.google.com/citations?user=7oLbhAwAAAAJ" target="_blank" style="text-decoration: none">Mingli Song</a>. In 2020, I received my B.Eng. degree in Agricultural Engineering from <a href="https://www.zju.edu.cn/english/">Zhejiang University</a> and was selected as an Outstanding Graduate of Zhejiang Province.
-    </p>
-</div>
-
-<div style="display: flex; margin-bottom: -10px">
-    <p>
-        My research focuses on <strong>leveraging reinforcement learning to enhance the reasoning capabilities of large language models (LLMs)</strong> and on <strong>building general-purpose intelligent agents</strong>. I aim to push forward the real-world deployment of LLM-powered agents—enabling them to serve society, improve daily life, and contribute to social good.
-        </br></br><strong>Please feel free to contact me if you are interested in my research :)</strong></br>
-    </p>
-</div>
-
-<h2>News</h2>
-
-<ul>
-    <li>
-        <div class="marker">[Sep 2025] One paper was accepted by <a href="https://nips.cc/Conferences/2025" target="_blank" style="text-decoration: none">&nbsp;NeurIPS 2025</a>.</div>
-    </li>
-    <li>
-        <div class="marker">[Sep 2025] One paper was accepted by <a href="https://2025.emnlp.org/" target="_blank" style="text-decoration: none">&nbsp;EMNLP 2025</a>.</div>
-    </li>
-
-</ul>
-
-<!-- <div class="show_button">
-    <a href="javascript:toggle_vis('news')" id="showText">[Show more]</a>
-</div> -->
-
-<!-- <h2>Highlight Publications</h2>
-
-<p><sup>*</sup> denotes equal contribution, and <sup>✉</sup> denotes the corresponding author.</p> -->
-
-
-<!-- <div class="publication_container"> -->
-    <!-- <div class="publication_image">
-        <img src="images/A2PO.png">
+  <a class="skip-link" href="#main"><span data-lang="en">Skip to content</span><span data-lang="zh" lang="zh-CN">跳至正文</span></a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#about" aria-label="Wenkai Fang — home" data-label-en="Wenkai Fang — home" data-label-zh="方文凯 — 返回首页">
+        <img src="images/wf-logo.svg" width="48" height="48" alt="" aria-hidden="true">
+      </a>
+      <nav aria-label="Main navigation" data-label-en="Main navigation" data-label-zh="主导航">
+        <a href="#about"><span data-lang="en">About</span><span data-lang="zh" lang="zh-CN">关于我</span></a>
+        <a href="#research"><span data-lang="en">Research</span><span data-lang="zh" lang="zh-CN">研究成果</span></a>
+        <a href="#honors"><span data-lang="en">Honors</span><span data-lang="zh" lang="zh-CN">荣誉奖励</span></a>
+        <a href="#service"><span data-lang="en">Service</span><span data-lang="zh" lang="zh-CN">学生工作</span></a>
+        <a href="#moments"><span data-lang="en">Moments</span><span data-lang="zh" lang="zh-CN">照片墙</span></a>
+      </nav>
+      <div class="language-switch js-control" role="group" aria-label="Language" data-label-en="Language" data-label-zh="语言">
+        <svg class="language-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c5 5 5 13 0 18-5-5-5-13 0-18Z"/></svg>
+        <button type="button" data-set-language="en" lang="en" aria-pressed="true">English</button>
+        <button type="button" data-set-language="zh" lang="zh-CN" aria-pressed="false">中文</button>
+      </div>
     </div>
-    <div class="publication_title">
-        <b>A2PO: Towards Effective Offline Reinforcement Learning from an Advantage-aware Perspective</b><br>
-        Yunpeng Qing, <b><u>Shunyu Liu<sup>✉</sup></u></b>, Jingyuan Cong, Kaixuan Chen, Yihe Zhou, Mingli Song<br>
-        Advances in Neural Information Processing Systems (<b>NeurIPS</b>), 2024<br>
-        <a href="https://proceedings.neurips.cc/paper_files/paper/2024/hash/333a7697dbb67f09249337f81c27d749-Abstract-Conference.html" target="_blank" style="text-decoration: none">[Paper]</a>
-        <a href="https://arxiv.org/abs/2403.07262" target="_blank" style="text-decoration: none">[arXiv]</a>
-        <a href="https://github.com/Plankson/A2PO" target="_blank" style="text-decoration: none">[Code]</a>
+  </header>
+  <main id="main" class="page-shell">
+    <section id="about" class="hero" aria-labelledby="profile-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span><span data-lang="en">Zhejiang University · VIPA Group</span><span data-lang="zh" lang="zh-CN">浙江大学 · VIPA 研究组</span></p>
+        <h1 id="profile-title"><span data-lang="en">Wenkai Fang</span><span data-lang="zh" lang="zh-CN">方文凯</span><span class="alternate-name" data-lang="en" lang="zh-CN">方文凯</span><span class="alternate-name" data-lang="zh" lang="en">Wenkai Fang</span></h1>
+        <p class="hero-role"><span data-lang="en">Ph.D. candidate in Computer Science</span><span data-lang="zh" lang="zh-CN">计算机科学与技术 · 博士研究生</span></p>
+        <div class="biography">
+          <p data-lang="en">I am a Ph.D. candidate at <a href="https://www.zju.edu.cn/english/">Zhejiang University</a> and a member of the <a href="https://www.vipazoo.cn/">Visual Intelligence and Pattern Analysis (VIPA) Group</a>, advised by Prof. <a href="https://scholar.google.com/citations?user=7oLbhAwAAAAJ">Mingli Song</a>. I received my B.Eng. in Agricultural Engineering from Zhejiang University in 2024.</p>
+          <p data-lang="zh" lang="zh-CN">我是<a href="https://www.zju.edu.cn/">浙江大学</a>计算机科学与技术学院博士研究生，隶属于<a href="https://www.vipazoo.cn/">视觉智能与模式分析（VIPA）研究组</a>，导师为<a href="https://scholar.google.com/citations?user=7oLbhAwAAAAJ">宋明黎</a>教授。我于 2024 年获得浙江大学农业工程专业工学学士学位。</p>
+          <p data-lang="en">My research explores <strong>reinforcement learning for language model reasoning</strong> and <strong>general-purpose intelligent agents</strong>. I aim to build agents that move beyond benchmarks and make a positive difference in everyday life.</p>
+          <p data-lang="zh" lang="zh-CN">我的研究关注<strong>利用强化学习提升大语言模型的推理能力</strong>与<strong>通用智能体</strong>，致力于推动智能体走向真实场景，服务社会与日常生活。</p>
+        </div>
+        <div class="profile-links">
+          <a class="contact-button" href="mailto:wenkfang@zju.edu.cn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span data-lang="en">Get in touch</span><span data-lang="zh" lang="zh-CN">联系我</span></a>
+          <a href="https://scholar.google.com/citations?user=ODjz4BQAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/wantbook-book" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+        </div>
+        <p class="email-address"><a href="mailto:wenkfang@zju.edu.cn">wenkfang@zju.edu.cn</a></p>
+        <a class="moments-invitation" href="#moments"><span class="little-spark" aria-hidden="true">✳</span><span data-lang="en">A little life beyond the papers</span><span data-lang="zh" lang="zh-CN">论文之外，也记录生活</span><span aria-hidden="true">↗</span></a>
+      </div>
+      <figure class="portrait">
+        <span class="portrait-orbit" aria-hidden="true"></span>
+        <div class="portrait-frame"><img src="images/fangwenkai.jpg" width="2176" height="2843" alt="Wenkai Fang" fetchpriority="high"></div>
+        <figcaption><span class="location-dot" aria-hidden="true">⌖</span><span data-lang="en">Hangzhou, China</span><span data-lang="zh" lang="zh-CN">中国 · 杭州</span><span class="portrait-line" aria-hidden="true"></span></figcaption>
+      </figure>
+    </section>
+
+    <div class="research-interests" aria-label="Research interests" data-label-en="Research interests" data-label-zh="研究方向">
+      <p class="eyebrow"><span data-lang="en">Research interests</span><span data-lang="zh" lang="zh-CN">研究方向</span></p>
+      <span><span class="interest-number" aria-hidden="true">01</span><span data-lang="en">Reinforcement Learning</span><span data-lang="zh" lang="zh-CN">强化学习</span></span>
+      <span><span class="interest-number" aria-hidden="true">02</span><span data-lang="en">LLM Reasoning</span><span data-lang="zh" lang="zh-CN">大语言模型推理</span></span>
+      <span><span class="interest-number" aria-hidden="true">03</span><span data-lang="en">Intelligent Agents</span><span data-lang="zh" lang="zh-CN">智能体</span></span>
     </div>
-</div> -->
 
+    <section class="news-section" aria-labelledby="news-title">
+      <h2 id="news-title"><span class="section-kicker" data-lang="en">What's new</span><span class="section-kicker" data-lang="zh" lang="zh-CN">近期动态</span><span data-lang="en">Latest updates<span class="green-period">.</span></span><span data-lang="zh" lang="zh-CN">最近的消息<span class="green-period">。</span></span></h2>
+      <ul class="news-list">
+        <li><span class="news-date">2026.11</span><p data-lang="en"><a href="https://arxiv.org/abs/2611.10027">NINJA</a>, our work on context-efficient issue localization, is accepted at <strong>NeurIPS 2026</strong>.</p><p data-lang="zh" lang="zh-CN">面向高效上下文使用的问题定位研究 <a href="https://arxiv.org/abs/2611.10027">NINJA</a> 已被 <strong>NeurIPS 2026</strong> 接收。</p></li>
+        <li><span class="news-date">2025–2026</span><p data-lang="en">Awarded the <strong>Chen Tianzhou Scholarship</strong> and recognized as an <strong>Outstanding Graduate Student</strong>, <strong>Outstanding Graduate Student Leader</strong>, and <strong>All-Round Outstanding Graduate Student</strong>.</p><p data-lang="zh" lang="zh-CN">获评<strong>陈天洲奖学金</strong>、<strong>优秀研究生</strong>、<strong>优秀研究生干部</strong>及<strong>五好研究生</strong>。</p></li>
+        <li><span class="news-date">2025.09</span><p data-lang="en"><a href="https://arxiv.org/abs/2505.20347">SeRL</a> accepted at <strong>NeurIPS 2025</strong>; <a href="https://aclanthology.org/2025.emnlp-demos.48/">OpenRLHF</a> accepted at <strong>EMNLP 2025</strong>.</p><p data-lang="zh" lang="zh-CN"><a href="https://arxiv.org/abs/2505.20347">SeRL</a> 被 <strong>NeurIPS 2025</strong> 接收；<a href="https://aclanthology.org/2025.emnlp-demos.48/">OpenRLHF</a> 被 <strong>EMNLP 2025</strong> 接收。</p></li>
+      </ul>
+    </section>
 
-<h2>Preprints</h2>
+    <section id="research" class="content-section" aria-labelledby="research-title">
+      <div class="section-heading">
+        <div><p class="section-kicker"><span data-lang="en">Ideas into practice</span><span data-lang="zh" lang="zh-CN">从想法到探索</span></p><h2 id="research-title"><span data-lang="en">Research & publications<span class="green-period">.</span></span><span data-lang="zh" lang="zh-CN">研究与论文<span class="green-period">。</span></span></h2></div>
+        <a class="text-link" href="https://scholar.google.com/citations?user=ODjz4BQAAAAJ" target="_blank" rel="noopener noreferrer"><span data-lang="en">View Google Scholar</span><span data-lang="zh" lang="zh-CN">Google Scholar 学术主页</span> <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="publication-toolbar">
+        <div class="publication-filters js-control" role="group" aria-label="Filter publications" data-label-en="Filter publications" data-label-zh="筛选论文">
+          <button type="button" data-filter="all" aria-pressed="true"><span data-lang="en">All work</span><span data-lang="zh" lang="zh-CN">全部</span></button>
+          <button type="button" data-filter="published" aria-pressed="false"><span data-lang="en">Published / accepted</span><span data-lang="zh" lang="zh-CN">已发表 / 已录用</span></button>
+          <button type="button" data-filter="preprint" aria-pressed="false"><span data-lang="en">Preprints</span><span data-lang="zh" lang="zh-CN">预印本</span></button>
+        </div>
+        <span class="publication-count js-control" aria-live="polite" aria-atomic="true"></span>
+      </div>
+      <p class="author-note"><span data-lang="en">* Equal contribution. Click a figure to explore the framework.</span><span data-lang="zh" lang="zh-CN">* 表示共同贡献。点击框架图可放大查看，论文标题保留英文原文。</span></p>
+      <div id="publication-list">
+        <div class="publication-group" aria-labelledby="year-2026"><h3 class="publication-year" id="year-2026">2026</h3>
+        <article class="publication" id="paper-ninja" data-status="published" aria-labelledby="title-ninja">
+          <a class="publication-visual" href="images/papers/ninja.webp" data-figure="ninja" data-figure-source="https://arxiv.org/html/2611.10027v1" data-caption-en="Figure 1 · Framework overview from the original paper." data-caption-zh="图 1 · 框架总览，提取自原论文。" aria-label="Enlarge NINJA framework" data-label-en="Enlarge NINJA framework" data-label-zh="放大原论文图 1：NINJA 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/ninja.webp" alt="NINJA framework, Figure 1 from the original paper" data-alt-en="NINJA framework, Figure 1 from the original paper" data-alt-zh="原论文图 1：NINJA 框架" width="1707" height="705" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">NeurIPS 2026</span><span aria-hidden="true">·</span><span><span data-lang="en">Accepted</span><span data-lang="zh" lang="zh-CN">已录用</span></span></div>
+            <h4 id="title-ninja" lang="en"><a href="https://neurips.cc/virtual/2026/poster/153070" target="_blank" rel="noopener noreferrer">NINJA: A Navigator-Inspector Joint Architecture for Context-Efficient Issue Localization</a></h4>
+            <p class="authors" lang="en"><strong>Wenkai Fang</strong>, Shunyu Liu, Wei Luo, Zihao Wu, Yang Zhou, Tongya Zheng, Wotao Yin, Jialie Shen, Leszek Rutkowski, Mingli Song, Dacheng Tao</p>
 
-<!-- <p>For the most up-to-date list, please visit my <a href="https://scholar.google.com.hk/citations?user=4U-X6d4AAAAJ&hl=en">Google Scholar</a>.</p> -->
+            <div class="publication-links"><a href="https://neurips.cc/virtual/2026/poster/153070" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2611.10027" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/wantbook-book/NINJA" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-fox" data-status="published" aria-labelledby="title-fox">
+          <a class="publication-visual" href="images/papers/mango.webp" data-figure="mango" data-figure-source="https://media.eventhosts.cc/Conferences/ECCV2026/pdfs/843.pdf" data-caption-en="Figure 2 · Framework overview from the original paper." data-caption-zh="图 2 · 框架总览，提取自原论文。" aria-label="Enlarge MANGO framework" data-label-en="Enlarge MANGO framework" data-label-zh="放大原论文图 2：MANGO 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/mango.webp" alt="MANGO framework, Figure 2 from the original paper" data-alt-en="MANGO framework, Figure 2 from the original paper" data-alt-zh="原论文图 2：MANGO 框架" width="1672" height="1168" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">ECCV 2026</span><span aria-hidden="true">·</span><span><span data-lang="en">Conference paper</span><span data-lang="zh" lang="zh-CN">会议论文</span></span></div>
+            <h4 id="title-fox" lang="en"><a href="https://link.springer.com/chapter/10.1007/978-3-032-37520-9_10" target="_blank" rel="noopener noreferrer">MANGO: Unleashing Image Generation Capability of Unified Multimodal Models</a></h4>
+            <p class="authors" lang="en">Yi Wang<sup>*</sup>, Mushui Liu<sup>*</sup>, Wanggui He<sup>*</sup>, Hanyang Yuan<sup>*</sup>, Ziwei Huang, Guanghao Zhang, <strong>Wenkai Fang</strong>, Haoze Jiang, Shengxuming Zhang, Weilong Dai, Haofei Zhang, Mingli Song, Hao Jiang, Jie Song</p>
+            <p class="publication-note"><span data-lang="en">Earlier preprint (FoX): Towards Enhanced Image Generation Via Multi-modal Chain of Thought in Unified Generative Models.</span><span data-lang="zh" lang="zh-CN">早期预印本（FoX）：Towards Enhanced Image Generation Via Multi-modal Chain of Thought in Unified Generative Models。</span></p>
+            <div class="publication-links"><a href="https://link.springer.com/chapter/10.1007/978-3-032-37520-9_10" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://media.eventhosts.cc/Conferences/ECCV2026/pdfs/843.pdf" target="_blank" rel="noopener noreferrer">PDF</a><a href="https://arxiv.org/abs/2503.01298v3" target="_blank" rel="noopener noreferrer"><span data-lang="en">Earlier arXiv version</span><span data-lang="zh" lang="zh-CN">早期 arXiv 版本</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-ruscarl" data-status="published" aria-labelledby="title-ruscarl">
+          <a class="publication-visual" href="images/papers/ruscarl.webp" data-figure="ruscarl" data-figure-source="https://arxiv.org/html/2508.16949v2" data-caption-en="Figure 2 · Framework overview from the original paper." data-caption-zh="图 2 · 框架总览，提取自原论文。" aria-label="Enlarge RuscaRL framework" data-label-en="Enlarge RuscaRL framework" data-label-zh="放大原论文图 2：RuscaRL 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/ruscarl.webp" alt="RuscaRL framework, Figure 2 from the original paper" data-alt-en="RuscaRL framework, Figure 2 from the original paper" data-alt-zh="原论文图 2：RuscaRL 框架" width="1687" height="765" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">ICML 2026</span><span aria-hidden="true">·</span><span><span data-lang="en">Conference paper</span><span data-lang="zh" lang="zh-CN">会议论文</span></span></div>
+            <h4 id="title-ruscarl" lang="en"><a href="https://proceedings.mlr.press/v306/zhou26y.html" target="_blank" rel="noopener noreferrer">Breaking the Exploration Bottleneck: Rubric-Scaffolded Reinforcement Learning for Open-Ended LLM Reasoning</a></h4>
+            <p class="authors" lang="en">Yang Zhou, Sunzhu Li, Shunyu Liu, <strong>Wenkai Fang</strong>, Kongcheng Zhang, Jiale Zhao, Jingwen Yang, Yihe Zhou, Jianwei Lv, Tongya Zheng, Hengtong Lu, Chen Wei, Xie Yan, Mingli Song</p>
 
-<p>For the most up-to-date list, please visit my <a href="https://scholar.google.com/citations?user=ODjz4BQAAAAJ">Google Scholar</a>.</p>
+            <div class="publication-links"><a href="https://proceedings.mlr.press/v306/zhou26y.html" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2508.16949" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/IANNXANG/RuscaRL" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-hir" data-status="published" aria-labelledby="title-hir">
+          <a class="publication-visual" href="images/papers/hir.webp" data-figure="hir" data-figure-source="https://arxiv.org/pdf/2512.23457" data-caption-en="Figure 2 · Framework overview from the original paper." data-caption-zh="图 2 · 框架总览，提取自原论文。" aria-label="Enlarge HiR framework" data-label-en="Enlarge HiR framework" data-label-zh="放大原论文图 2：HiR 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/hir.webp" alt="HiR framework, Figure 2 from the original paper" data-alt-en="HiR framework, Figure 2 from the original paper" data-alt-zh="原论文图 2：HiR 框架" width="1666" height="541" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">ICML 2026</span><span aria-hidden="true">·</span><span><span data-lang="en">Conference paper</span><span data-lang="zh" lang="zh-CN">会议论文</span></span></div>
+            <h4 id="title-hir" lang="en"><a href="https://proceedings.mlr.press/v306/zhang26hv.html" target="_blank" rel="noopener noreferrer">Replay Failures as Successes: Sample-Efficient Reinforcement Learning for Instruction Following</a></h4>
+            <p class="authors" lang="en">Kongcheng Zhang, Qi Yao, Shunyu Liu, Wenjian Zhang, Min Cen, Yang Zhou, <strong>Wenkai Fang</strong>, Yiru Zhao, Baisheng Lai, Mingli Song</p>
 
+            <div class="publication-links"><a href="https://proceedings.mlr.press/v306/zhang26hv.html" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2512.23457" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/sastpg/HIR" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-rftt" data-status="published" aria-labelledby="title-rftt">
+          <a class="publication-visual" href="images/papers/rftt.webp" data-figure="rftt" data-figure-source="https://arxiv.org/pdf/2502.13389" data-caption-en="Figure 1 · Framework overview from the original paper." data-caption-zh="图 1 · 框架总览，提取自原论文。" aria-label="Enlarge RFTT framework" data-label-en="Enlarge RFTT framework" data-label-zh="放大原论文图 1：RFTT 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/rftt.webp" alt="RFTT framework, Figure 1 from the original paper" data-alt-en="RFTT framework, Figure 1 from the original paper" data-alt-zh="原论文图 1：RFTT 框架" width="1666" height="575" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">ICLR 2026</span><span aria-hidden="true">·</span><span><span data-lang="en">Conference paper</span><span data-lang="zh" lang="zh-CN">会议论文</span></span></div>
+            <h4 id="title-rftt" lang="en"><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/23a3f2649b71ed108bbf9bab17c65a6f-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">Incentivizing LLM Reasoning via Reinforcement Learning with Functional Monte Carlo Tree Search</a></h4>
+            <p class="authors" lang="en">Kongcheng Zhang, Qi Yao, Baisheng Lai, Jiaxing Huang, <strong>Wenkai Fang</strong>, Dacheng Tao, Mingli Song, Shunyu Liu</p>
+            <p class="publication-note"><span data-lang="en">Previously: Reasoning with Reinforced Functional Token Tuning.</span><span data-lang="zh" lang="zh-CN">预印本原题：Reasoning with Reinforced Functional Token Tuning。</span></p>
+            <div class="publication-links"><a href="https://proceedings.iclr.cc/paper_files/paper/2026/hash/23a3f2649b71ed108bbf9bab17c65a6f-Abstract-Conference.html" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2502.13389" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/sastpg/RFTT" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-saslm" data-status="preprint" aria-labelledby="title-saslm">
+          <a class="publication-visual" href="images/papers/saslm.webp" data-figure="saslm" data-figure-source="https://arxiv.org/html/2604.11424v2" data-caption-en="Figure 3 · Framework overview from the original paper." data-caption-zh="图 3 · 框架总览，提取自原论文。" aria-label="Enlarge SASLM framework" data-label-en="Enlarge SASLM framework" data-label-zh="放大原论文图 3：SASLM 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/saslm.webp" alt="SASLM framework, Figure 3 from the original paper" data-alt-en="SASLM framework, Figure 3 from the original paper" data-alt-zh="原论文图 3：SASLM 框架" width="1381" height="754" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge preprint-badge" lang="en">arXiv 2026</span><span aria-hidden="true">·</span><span><span data-lang="en">Preprint</span><span data-lang="zh" lang="zh-CN">预印本</span></span></div>
+            <h4 id="title-saslm" lang="en"><a href="https://arxiv.org/abs/2604.11424" target="_blank" rel="noopener noreferrer">Bridging What the Model Thinks and How It Speaks: Expressive Speech Generation via Self-Aware Intent-Realization Alignment</a></h4>
+            <p class="authors" lang="en">Kuang Wang, Lai Wei, Ping Lin, Qibing Bai, <strong>Wenkai Fang</strong>, Li Zhou, Feng Jiang, Zhongjie Jiang, Jun Huang, Yannan Wang, Haizhou Li</p>
 
-<div class="publication_container">
-    <div class="publication_title">
-        <b>SeRL: Self-Play Reinforcement Learning for Large Language Models with Limited Data</b><br>
-        <b><u>Wenkai Fang</u></b>, Shunyu Liu<sup>✉</sup>, Yang Zhou, Kongcheng Zhang, Tongya Zheng, Kaixuan Chen, Mingli Song, Dacheng Tao<br>
-        arXiv preprint arXiv:2505.20347, 2025<br>
-        <a href="https://arxiv.org/abs/2505.20347" target="_blank" style="text-decoration: none">[arXiv]</a> 
-        <a href="https://github.com/wantbook-book/SeRL" target="_blank" style="text-decoration: none">[Code]</a>
-    </div>
-</div>
+            <div class="publication-links"><a href="https://arxiv.org/abs/2604.11424" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/wangkevin02/SASLM" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a><a href="https://wangkevin02.github.io/SASLM/" target="_blank" rel="noopener noreferrer"><span data-lang="en">Project</span><span data-lang="zh" lang="zh-CN">项目主页</span></a></div>
+          </div>
+        </article>
+        </div>
+        <div class="publication-group" aria-labelledby="year-2025"><h3 class="publication-year" id="year-2025">2025</h3>
+        <article class="publication" id="paper-serl" data-status="published" aria-labelledby="title-serl">
+          <a class="publication-visual" href="images/papers/serl.webp" data-figure="serl" data-figure-source="https://arxiv.org/pdf/2505.20347v2" data-caption-en="Figure 1 · Framework overview from the original paper." data-caption-zh="图 1 · 框架总览，提取自原论文。" aria-label="Enlarge SeRL framework" data-label-en="Enlarge SeRL framework" data-label-zh="放大原论文图 1：SeRL 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/serl.webp" alt="SeRL framework, Figure 1 from the original paper" data-alt-en="SeRL framework, Figure 1 from the original paper" data-alt-zh="原论文图 1：SeRL 框架" width="1314" height="1074" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">NeurIPS 2025</span><span aria-hidden="true">·</span><span><span data-lang="en">Conference paper</span><span data-lang="zh" lang="zh-CN">会议论文</span></span></div>
+            <h4 id="title-serl" lang="en"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/95c2cbe23fb6d28a4ae908aa7f3de5bf-Abstract-Conference.html" target="_blank" rel="noopener noreferrer">SeRL: Self-play Reinforcement Learning for Large Language Models with Limited Data</a></h4>
+            <p class="authors" lang="en"><strong>Wenkai Fang</strong>, Shunyu Liu, Yang Zhou, Kongcheng Zhang, Tongya Zheng, Kaixuan Chen, Mingli Song, Dacheng Tao</p>
 
+            <div class="publication-links"><a href="https://proceedings.neurips.cc/paper_files/paper/2025/hash/95c2cbe23fb6d28a4ae908aa7f3de5bf-Abstract-Conference.html" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2505.20347" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/wantbook-book/SeRL" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-openrlhf" data-status="published" aria-labelledby="title-openrlhf">
+          <a class="publication-visual" href="images/papers/openrlhf.webp" data-figure="openrlhf" data-figure-source="https://arxiv.org/html/2405.11143v6" data-caption-en="Figure 1 · Framework overview from the original paper." data-caption-zh="图 1 · 框架总览，提取自原论文。" aria-label="Enlarge OpenRLHF framework" data-label-en="Enlarge OpenRLHF framework" data-label-zh="放大原论文图 1：OpenRLHF 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/openrlhf.webp" alt="OpenRLHF framework, Figure 1 from the original paper" data-alt-en="OpenRLHF framework, Figure 1 from the original paper" data-alt-zh="原论文图 1：OpenRLHF 框架" width="1800" height="1013" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">EMNLP 2025</span><span aria-hidden="true">·</span><span><span data-lang="en">System Demonstrations</span><span data-lang="zh" lang="zh-CN">系统演示论文</span></span></div>
+            <h4 id="title-openrlhf" lang="en"><a href="https://aclanthology.org/2025.emnlp-demos.48/" target="_blank" rel="noopener noreferrer">OpenRLHF: A Ray-based Easy-to-use, Scalable and High-performance RLHF Framework</a></h4>
+            <p class="authors" lang="en">Jian Hu, Xibin Wu, Wei Shen, Jason Klein Liu, Weixun Wang, Songlin Jiang, Haoran Wang, Hao Chen, Bin Chen, <strong>Wenkai Fang</strong>, Xianyu, Yu Cao, Haotian Xu, Yiming Liu</p>
 
-<div class="publication_container">
-    <div class="publication_title">
-        <b>A Survey of Direct Preference Optimization</b><br>
-        Shunyu Liu, <b><u>Wenkai Fang</u></b>, Zetian Hu, Junjie Zhang, Yang Zhou, Kongcheng Zhang, Rongcheng Tu, Ting-En Lin, Fei Huang, Mingli Song, Yongbin Li, Dacheng Tao<sup>✉</sup><br>
-        arXiv preprint arXiv:2503.11701, 2025<br>
-        <a href="https://arxiv.org/abs/2503.11701" target="_blank" style="text-decoration: none">[arXiv]</a> 
-        <a href="https://github.com/liushunyu/awesome-direct-preference-optimization" target="_blank" style="text-decoration: none">[Code]</a>
-    </div>
-</div>
+            <div class="publication-links"><a href="https://aclanthology.org/2025.emnlp-demos.48/" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2405.11143" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/OpenRLHF/OpenRLHF" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-odyssey" data-status="published" aria-labelledby="title-odyssey">
+          <a class="publication-visual" href="images/papers/odyssey.webp" data-figure="odyssey" data-figure-source="https://arxiv.org/pdf/2407.15325v3" data-caption-en="Figure 1 · Framework overview from the original paper." data-caption-zh="图 1 · 框架总览，提取自原论文。" aria-label="Enlarge Odyssey framework" data-label-en="Enlarge Odyssey framework" data-label-zh="放大原论文图 1：Odyssey 框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/odyssey.webp" alt="Odyssey framework, Figure 1 from the original paper" data-alt-en="Odyssey framework, Figure 1 from the original paper" data-alt-zh="原论文图 1：Odyssey 框架" width="1620" height="666" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge" lang="en">IJCAI 2025</span><span aria-hidden="true">·</span><span><span data-lang="en">Conference paper</span><span data-lang="zh" lang="zh-CN">会议论文</span></span></div>
+            <h4 id="title-odyssey" lang="en"><a href="https://ijcai.org/proceedings/2025/22" target="_blank" rel="noopener noreferrer">Odyssey: Empowering Minecraft Agents with Open-World Skills</a></h4>
+            <p class="authors" lang="en">Shunyu Liu<sup>*</sup>, Yaoru Li<sup>*</sup>, Kongcheng Zhang<sup>*</sup>, Zhenyu Cui<sup>*</sup>, <strong>Wenkai Fang</strong><sup>*</sup>, Yuxuan Zheng, Tongya Zheng, Mingli Song</p>
 
+            <div class="publication-links"><a href="https://ijcai.org/proceedings/2025/22" target="_blank" rel="noopener noreferrer"><span data-lang="en">Paper</span><span data-lang="zh" lang="zh-CN">论文</span></a><a href="https://arxiv.org/abs/2407.15325" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/zju-vipa/Odyssey" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        <article class="publication" id="paper-dpo-survey" data-status="preprint" aria-labelledby="title-dpo-survey">
+          <a class="publication-visual" href="images/papers/dpo-survey.webp" data-figure="dpo-survey" data-figure-source="https://arxiv.org/pdf/2503.11701v1" data-caption-en="Figure 1 · DPO taxonomy from the original paper." data-caption-zh="图 1 · DPO 分类框架，提取自原论文。" aria-label="Enlarge DPO taxonomy" data-label-en="Enlarge DPO taxonomy" data-label-zh="放大原论文图 1：DPO 分类框架" target="_blank" rel="noopener noreferrer">
+            <img src="images/papers/dpo-survey.webp" alt="DPO taxonomy, Figure 1 from the original paper" data-alt-en="DPO taxonomy, Figure 1 from the original paper" data-alt-zh="原论文图 1：DPO 分类框架" width="1726" height="1450" loading="lazy" decoding="async">
+            <span class="figure-enlarge" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span data-lang="en">Expand</span><span data-lang="zh" lang="zh-CN">放大</span></span>
+          </a>
+          <div class="publication-body">
+            <div class="publication-meta"><span class="venue-badge preprint-badge" lang="en">arXiv 2025</span><span aria-hidden="true">·</span><span><span data-lang="en">Preprint</span><span data-lang="zh" lang="zh-CN">预印本</span></span></div>
+            <h4 id="title-dpo-survey" lang="en"><a href="https://arxiv.org/abs/2503.11701" target="_blank" rel="noopener noreferrer">A Survey of Direct Preference Optimization</a></h4>
+            <p class="authors" lang="en">Shunyu Liu, <strong>Wenkai Fang</strong>, Zetian Hu, Junjie Zhang, Yang Zhou, Kongcheng Zhang, Rongcheng Tu, Ting-En Lin, Fei Huang, Mingli Song, Yongbin Li, Dacheng Tao</p>
 
+            <div class="publication-links"><a href="https://arxiv.org/abs/2503.11701" target="_blank" rel="noopener noreferrer">arXiv</a><a href="https://github.com/liushunyu/awesome-direct-preference-optimization" target="_blank" rel="noopener noreferrer"><span data-lang="en">Code</span><span data-lang="zh" lang="zh-CN">代码</span></a></div>
+          </div>
+        </article>
+        </div>
+      </div>
+    </section>
 
-<div class="publication_container">
-    <div class="publication_title">
-        <b>Reasoning with Reinforced Functional Token Tuning</b><br>
-        Kongcheng Zhang, Qi Yao, Baisheng Lai, Jiaxing Huang, <b><u>Wenkai Fang</u></b>, Dacheng Tao, Mingli Song, Shunyu Liu<sup>✉</sup><br>
-        arXiv preprint arXiv:2502.13389, 2025<br>
-        <a href="https://arxiv.org/abs/2502.13389" target="_blank" style="text-decoration: none">[arXiv]</a> 
-        <a href="https://github.com/sastpg/RFTT" target="_blank" style="text-decoration: none">[Code]</a>
-    </div>
-</div>
+    <section id="honors" class="content-section" aria-labelledby="honors-title">
+      <div class="section-heading"><div><p class="section-kicker"><span data-lang="en">Along the way</span><span data-lang="zh" lang="zh-CN">成长与收获</span></p><h2 id="honors-title"><span data-lang="en">Honors & awards<span class="green-period">.</span></span><span data-lang="zh" lang="zh-CN">荣誉与奖励<span class="green-period">。</span></span></h2></div></div>
+      <div class="honors-grid">
+        <div>
+          <h3 class="subsection-title"><span class="small-icon" aria-hidden="true">✧</span><span data-lang="en">Scholarships & recognition</span><span data-lang="zh" lang="zh-CN">奖学金与荣誉称号</span></h3>
+          <div class="award-group"><span class="award-date">2025–2026</span><ul><li><span data-lang="en">Chen Tianzhou Scholarship</span><span data-lang="zh" lang="zh-CN">陈天洲奖学金</span></li><li><span data-lang="en">Outstanding Graduate Student</span><span data-lang="zh" lang="zh-CN">优秀研究生</span></li><li><span data-lang="en">Outstanding Graduate Student Leader</span><span data-lang="zh" lang="zh-CN">优秀研究生干部</span></li><li><span data-lang="en">All-Round Outstanding Graduate Student</span><span data-lang="zh" lang="zh-CN">五好研究生</span></li></ul></div>
+          <div class="award-group"><span class="award-date">2024–2025</span><ul><li><span data-lang="en">Outstanding Graduate Student</span><span data-lang="zh" lang="zh-CN">优秀研究生</span></li><li><span data-lang="en">Outstanding Graduate Student Leader</span><span data-lang="zh" lang="zh-CN">优秀研究生干部</span></li></ul></div>
+          <div class="award-group"><span class="award-date">2024</span><ul><li><span data-lang="en">Outstanding Graduate of Zhejiang Province</span><span data-lang="zh" lang="zh-CN">浙江省优秀毕业生</span></li><li><span data-lang="en">Outstanding Graduate of Zhejiang University</span><span data-lang="zh" lang="zh-CN">浙江大学优秀毕业生</span></li></ul></div>
+          <div class="award-group"><span class="award-date">2021–2023</span><ul><li><span data-lang="en">First-Class Scholarship, Zhejiang University · Twice</span><span data-lang="zh" lang="zh-CN">浙江大学一等奖学金 · 两次</span></li></ul></div>
+          <div class="award-group"><span class="award-date">2020–2023</span><ul><li><span data-lang="en">Zhejiang Provincial Government Scholarship · Three times</span><span data-lang="zh" lang="zh-CN">浙江省政府奖学金 · 三次</span></li></ul></div>
+          <div class="award-group"><span class="award-date">2020–2021</span><ul><li><span data-lang="en">Third-Class Scholarship, Zhejiang University</span><span data-lang="zh" lang="zh-CN">浙江大学三等奖学金</span></li></ul></div>
+        </div>
+        <div>
+          <h3 class="subsection-title"><span class="small-icon" aria-hidden="true">↗</span><span data-lang="en">Competitions</span><span data-lang="zh" lang="zh-CN">竞赛获奖</span></h3>
+          <ol class="competition-list">
+            <li><span class="award-date">2025</span><div><strong><span data-lang="en">First Prize</span><span data-lang="zh" lang="zh-CN">一等奖</span></strong><p data-lang="en">7th “Huawei Cup” China Graduate Artificial Intelligence Innovation Competition</p><p data-lang="zh" lang="zh-CN">第七届“华为杯”中国研究生人工智能创新大赛</p></div></li>
+            <li><span class="award-date">2023</span><div><strong><span data-lang="en">Champion · Advanced Division</span><span data-lang="zh" lang="zh-CN">高级组冠军</span></strong><p data-lang="en">ASABE International Student Agricultural Robotics Competition</p><p data-lang="zh" lang="zh-CN">ASABE 国际大学生农业机器人设计竞赛</p></div></li>
+            <li><span class="award-date">2022</span><div><strong><span data-lang="en">Second Prize</span><span data-lang="zh" lang="zh-CN">二等奖</span></strong><p data-lang="en">Zhejiang Provincial Physics Innovation Competition</p><p data-lang="zh" lang="zh-CN">浙江省大学生物理创新竞赛</p></div></li>
+            <li><span class="award-date">2021</span><div><strong><span data-lang="en">National First Prize</span><span data-lang="zh" lang="zh-CN">全国一等奖</span></strong><p data-lang="en">China Agricultural Robotics Competition</p><p data-lang="zh" lang="zh-CN">中国农业机器人大赛</p></div></li>
+            <li><span class="award-date">2021</span><div><strong><span data-lang="en">National Grand Prize</span><span data-lang="zh" lang="zh-CN">全国特等奖</span></strong><p data-lang="en">5th “Yunfeng Cup” National Green Supply Chain and Reverse Logistics Design Competition</p><p data-lang="zh" lang="zh-CN">第五届“云丰杯”全国绿色供应链与逆向物流设计大赛</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
+    <section id="service" class="content-section service-section" aria-labelledby="service-title">
+      <div class="section-heading"><div><p class="section-kicker"><span data-lang="en">Beyond research</span><span data-lang="zh" lang="zh-CN">科研之外</span></p><h2 id="service-title"><span data-lang="en">Student leadership & service<span class="green-period">.</span></span><span data-lang="zh" lang="zh-CN">学生工作与服务<span class="green-period">。</span></span></h2></div></div>
+      <div class="service-list">
+        <article><span class="service-date">2024 — 2026</span><div class="service-description"><h3><span data-lang="en">Part-Time Student Affairs Counselor</span><span data-lang="zh" lang="zh-CN">兼职辅导员</span></h3><p data-lang="en">College of Computer Science and Technology<br>Zhejiang University</p><p data-lang="zh" lang="zh-CN">浙江大学<br>计算机科学与技术学院</p></div><span class="service-index" aria-hidden="true">01</span></article>
+        <article><span class="service-date">2024 — 2025</span><div class="service-description"><h3><span data-lang="en">President, Graduate Student Association</span><span data-lang="zh" lang="zh-CN">研究生会主席</span></h3><p data-lang="en">College of Computer Science and Technology<br>Zhejiang University</p><p data-lang="zh" lang="zh-CN">浙江大学<br>计算机科学与技术学院</p></div><span class="service-index" aria-hidden="true">02</span></article>
+      </div>
+    </section>
 
+    <section id="moments" class="content-section moments-section" aria-labelledby="moments-title">
+      <div class="section-heading"><div><p class="section-kicker"><span data-lang="en">A life in snapshots</span><span data-lang="zh" lang="zh-CN">把日子留在相片里</span></p><h2 id="moments-title"><span data-lang="en">Moments along the way<span class="green-period">.</span></span><span data-lang="zh" lang="zh-CN">沿途的瞬间<span class="green-period">。</span></span></h2></div><p class="gallery-intro"><span data-lang="en">Research, people, and the little things in between.<br>A photo collection in the making.</span><span data-lang="zh" lang="zh-CN">科研、同行，以及其间的生活。<br>照片正在整理，先为回忆留个位置。</span></p></div>
+      <div class="memory-grid">
+        <!-- Replace this placeholder with a real photo and its bilingual alt text when available. -->
+        <figure class="memory-card memory-exchange" data-photo-slot="exchange">
+          <div class="memory-placeholder"><span class="memory-number" aria-hidden="true">01</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="5" width="54" height="37" rx="3"/><path d="M21 57 32 42l11 15M17 17h30M17 25h20"/></svg><span class="placeholder-label"><span data-lang="en">Photo to come</span><span data-lang="zh" lang="zh-CN">照片待补充</span></span></div>
+          <figcaption><h3><span data-lang="en">Research & exchange</span><span data-lang="zh" lang="zh-CN">学术交流</span></h3><p><span data-lang="en">Conversations that open new doors.</span><span data-lang="zh" lang="zh-CN">在交流中遇见新的思考。</span></p></figcaption>
+        </figure>
+        <!-- Replace this placeholder with a real photo and its bilingual alt text when available. -->
+        <figure class="memory-card memory-community" data-photo-slot="community">
+          <div class="memory-placeholder"><span class="memory-number" aria-hidden="true">02</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="23" r="9"/><path d="M7 52v-6c0-9 7-14 17-14s17 5 17 14v6M44 15a9 9 0 0 1 0 18M45 37c8 0 12 5 12 12v3"/></svg><span class="placeholder-label"><span data-lang="en">Photo to come</span><span data-lang="zh" lang="zh-CN">照片待补充</span></span></div>
+          <figcaption><h3><span data-lang="en">People & community</span><span data-lang="zh" lang="zh-CN">同行与集体</span></h3><p><span data-lang="en">The people who make the journey.</span><span data-lang="zh" lang="zh-CN">记录一起走过的日子。</span></p></figcaption>
+        </figure>
+        <!-- Replace this placeholder with a real photo and its bilingual alt text when available. -->
+        <figure class="memory-card memory-robotics" data-photo-slot="robotics">
+          <div class="memory-placeholder"><span class="memory-number" aria-hidden="true">03</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="13" y="17" width="38" height="34" rx="6"/><path d="M32 7v10M7 27v13M57 27v13M24 42h16"/><circle cx="24" cy="29" r="2"/><circle cx="40" cy="29" r="2"/></svg><span class="placeholder-label"><span data-lang="en">Photo to come</span><span data-lang="zh" lang="zh-CN">照片待补充</span></span></div>
+          <figcaption><h3><span data-lang="en">Building & competing</span><span data-lang="zh" lang="zh-CN">竞赛与实践</span></h3><p><span data-lang="en">From an idea to something real.</span><span data-lang="zh" lang="zh-CN">让想法成为看得见的作品。</span></p></figcaption>
+        </figure>
+        <!-- Replace this placeholder with a real photo and its bilingual alt text when available. -->
+        <figure class="memory-card memory-campus" data-photo-slot="campus">
+          <div class="memory-placeholder"><span class="memory-number" aria-hidden="true">04</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 26 27-17 27 17H5ZM10 55h44M16 30v21M27 30v21M38 30v21M49 30v21"/></svg><span class="placeholder-label"><span data-lang="en">Photo to come</span><span data-lang="zh" lang="zh-CN">照片待补充</span></span></div>
+          <figcaption><h3><span data-lang="en">Days on campus</span><span data-lang="zh" lang="zh-CN">校园日常</span></h3><p><span data-lang="en">Small moments, familiar places.</span><span data-lang="zh" lang="zh-CN">收藏熟悉风景里的小瞬间。</span></p></figcaption>
+        </figure>
+        <!-- Replace this placeholder with a real photo and its bilingual alt text when available. -->
+        <figure class="memory-card memory-milestones" data-photo-slot="milestones">
+          <div class="memory-placeholder"><span class="memory-number" aria-hidden="true">05</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10h24v18c0 9-5 15-12 15s-12-6-12-15V10ZM20 16H9v7c0 8 6 11 13 11M44 16h11v7c0 8-6 11-13 11M32 43v12M23 56h18"/></svg><span class="placeholder-label"><span data-lang="en">Photo to come</span><span data-lang="zh" lang="zh-CN">照片待补充</span></span></div>
+          <figcaption><h3><span data-lang="en">Milestones</span><span data-lang="zh" lang="zh-CN">成长时刻</span></h3><p><span data-lang="en">A few moments to remember.</span><span data-lang="zh" lang="zh-CN">为值得记住的时刻留一页。</span></p></figcaption>
+        </figure>
+        <!-- Replace this placeholder with a real photo and its bilingual alt text when available. -->
+        <figure class="memory-card memory-everyday" data-photo-slot="everyday">
+          <div class="memory-placeholder"><span class="memory-number" aria-hidden="true">06</span><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 50 18-25 13 18 9-12 14 19H5Z"/><circle cx="43" cy="16" r="7"/></svg><span class="placeholder-label"><span data-lang="en">Photo to come</span><span data-lang="zh" lang="zh-CN">照片待补充</span></span></div>
+          <figcaption><h3><span data-lang="en">Away from the desk</span><span data-lang="zh" lang="zh-CN">生活片刻</span></h3><p><span data-lang="en">A different kind of exploration.</span><span data-lang="zh" lang="zh-CN">走出书桌，继续探索。</span></p></figcaption>
+        </figure>
+      </div>
+    </section>
 
-
-<h2>Publications</h2>
-
-<p><sup>*</sup> denotes equal contribution, and <sup>✉</sup> denotes the corresponding author.</p>
-
-
-<div class="newline_bg">
-    <h3>2025</h3>
-</div>
-
-<div class="publication_container">
-    <div class="publication_image">
-        <img src="images/serl.png">
-    </div>
-    <div class="publication_title">
-        <b>SeRL: Self-Play Reinforcement Learning for Large Language Models with Limited Data</b><br>
-        <b><u>Wenkai Fang</u></b>, Shunyu Liu<sup>✉</sup>, Yang Zhou, Kongcheng Zhang, Tongya Zheng, Kaixuan Chen, Mingli Song, Dacheng Tao<br>
-        Advances in Neural Information Processing Systems (<b>NeurIPS</b>), 2025<br>
-        <a href="https://arxiv.org/abs/2505.20347" target="_blank" style="text-decoration: none">[arXiv]</a> 
-        <a href="https://github.com/wantbook-book/SeRL" target="_blank" style="text-decoration: none">[Code]</a>
-    </div>
-</div>
-
-
-<div class="publication_container">
-    <div class="publication_image">
-        <img src="images/openrlhf.png">
-    </div>
-    <div class="publication_title">
-        <b>OpenRLHF: A Ray-based Easy-to-use, Scalable and High-performance RLHF Framework</b><br>
-        Jian Hu, Xibin Wu, Wei Shen, Jason Klein Liu, Weixun Wang, Songlin Jiang, Haoran Wang, Hao Chen, Bin Chen, <b><u>Wenkai Fang</u></b>, Xianyu, Yu Cao, Haotian Xu, Yiming Liu<br>
-        Empirical Methods in Natural Language Processing (<b>EMNLP</b>), 2025<br>
-        <a href="https://arxiv.org/abs/2405.11143" target="_blank" style="text-decoration: none">[arXiv]</a> 
-        <a href="https://github.com/OpenRLHF/OpenRLHF" target="_blank" style="text-decoration: none">[Code]</a>
-    </div>
-</div>
-
-
-<div class="publication_container">
-    <div class="publication_image">
-        <img src="images/odyssey.png">
-    </div>
-    <div class="publication_title">
-        <b>Odyssey: Empowering Minecraft Agents with Open-World Skills</b><br>
-        Shunyu Liu<sup>*</sup>, Yaoru Li<sup>*</sup>, Kongcheng Zhang<sup>*</sup>, Zhenyu Cui<sup>*</sup>, <b><u>Wenkai Fang<sup>*</sup></u></b>, Yuxuan Zheng, Tongya Zheng, Mingli Song<sup>✉</sup><br>
-        International Joint Conference on Artificial Intelligence (<b>IJCAI</b>), 2025<br>
-        <a href="https://arxiv.org/abs/2407.15325" target="_blank" style="text-decoration: none">[arXiv]</a>
-        <a href="https://github.com/zju-vipa/Odyssey" target="_blank" style="text-decoration: none">[Code]</a>
-    </div>
-</div>
-
-<!-- <div class="newline_bg">
-    <h3>2024</h3>
-</div> -->
-
-
-
-<h2>Honors</h2>
-
-<h3>Awards</h3>
-<ul>
-    <li>
-        <div class="marker">Outstanding Graduate of Zhejiang Province</div> <div>2024</div>
-    </li>
-    <li>
-        <div class="marker">Outstanding Graduate at the University Level of Zhejiang University</div> <div>2024</div>
-    </li>
-    <li>
-        <div class="marker">Two-time recipient of the First-Class Scholarship at Zhejiang University</div> <div>2021-2023</div>
-    </li>
-    <li>
-        <div class="marker">Three-time recipient of the Zhejiang Provincial Government Scholarship</div> <div>2020-2023</div>
-    </li>
-    <li>
-        <div class="marker">Third-Class Scholarship recipient at Zhejiang University</div> <div>2020-2021</div>
-    </li>
-    
-</ul>
-
-<h3>Competition</h3>
-<ul>
-    <li>
-        <div class="marker">The 7th Huawei Cup China Graduate Artificial Intelligence Innovation Competition First Prize</div> <div>2025</div>
-    </li>
-
-    <li>
-        <div class="marker">Champion of the Advanced Group in the ASABE International Student Agricultural Robotics </br>Competition</div> <div>2023</div>
-    </li>
-    <li>
-        <div class="marker">Second Prize in the Zhejiang Provincial Physics Innovation Competition</div> <div>2022</div>
-    </li>
-    <li>
-        <div class="marker">National First Prize in the China Agricultural Robotics Competition</div> <div>2021</div>
-    </li>
-    <li>
-        <div class="marker">National Special Prize in the 5th “Yunfeng Cup” National Green Supply Chain and Reverse Logistics Design Competition</div> <div>2021</div>
-    </li>
-</ul>
-
-<!-- <h2>Academic Services</h2>
-
-<h3>Journal Reviewer</h3>
-<ul>
-    <li>
-        <div class="marker">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</div>
-    </li>
-    <li>
-        <div class="marker">IEEE Transactions on Knowledge and Data Engineering (TKDE)</div>
-    </li>
-    <li>
-        <div class="marker">IEEE Transactions on Systems, Man and Cybernetics: Systems (TSMC)</div>
-    </li>
-    <li>
-        <div class="marker">Information Sciences (INS)</div>
-    </li>
-    <li>
-        <div class="marker">Autonomous Agents and Multi-Agent Systems (AAMAS)</div>
-    </li>
-    <li>
-        <div class="marker">International Journal of Electrical Power and Energy Systems (IJEPES)</div>
-    </li>
-</ul>
-
-<h3>Conference Reviewer</h3>
-<ul>
-    <li>
-        <div class="marker">NeurIPS 2025, ICML 2025, ICLR 2025, KDD 2025, ICCV 2025, IJCAI 2025</div>
-    </li>
-    <li>
-        <div class="marker">NeurIPS 2024, KDD 2024</div>
-    </li>
-    <li>
-        <div class="marker">ICLR 2023, ECAI 2023</div>
-    </li>
-</ul> -->
-
-<div style="margin-top: 40px; margin-bottom: 40px; text-align: center;">
-    <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=n&d=KgyRonnvb0KZbpHXkQET7P_kKm50RX6wJLAdcouTvSQ'></script>
-</div>
-
-<p>Last updated on Jan 2026. Webpage template borrowed from <a href="https://pengsida.net/">Prof. Sida Peng</a>.</p>
-
-
+    <section class="contact-section" aria-labelledby="contact-title"><div><p class="section-kicker"><span data-lang="en">Let's connect</span><span data-lang="zh" lang="zh-CN">交流与合作</span></p><h2 id="contact-title"><span data-lang="en">Good ideas start with a conversation.</span><span data-lang="zh" lang="zh-CN">让交流成为新想法的起点。</span></h2><p data-lang="en">Interested in my research? Feel free to reach out.</p><p data-lang="zh" lang="zh-CN">如果你对我的研究感兴趣，欢迎联系交流。</p></div><a href="mailto:wenkfang@zju.edu.cn">wenkfang@zju.edu.cn <span aria-hidden="true">↗</span></a></section>
+  </main>
+  <footer class="site-footer page-shell"><p>© 2026 <span data-lang="en">Wenkai Fang</span><span data-lang="zh" lang="zh-CN">方文凯</span></p><p><span data-lang="en">Last updated · November 2026</span><span data-lang="zh" lang="zh-CN">更新于 2026 年 11 月</span></p><a href="#about"><span data-lang="en">Back to top</span><span data-lang="zh" lang="zh-CN">返回顶部</span> <span aria-hidden="true">↑</span></a></footer>
+  <dialog id="figure-dialog" class="figure-dialog" aria-labelledby="figure-dialog-title">
+    <div class="figure-dialog-header"><p id="figure-dialog-title"></p><button type="button" class="dialog-close" aria-label="Close figure" data-label-en="Close figure" data-label-zh="关闭框架图" autofocus><span aria-hidden="true">×</span></button></div>
+    <div class="figure-dialog-image"><img id="figure-dialog-image" alt=""></div>
+    <div class="figure-dialog-footer"><p id="figure-dialog-caption"></p><a id="figure-dialog-source" target="_blank" rel="noopener noreferrer"><span data-lang="en">Read the source paper ↗</span><span data-lang="zh" lang="zh-CN">查看原论文 ↗</span></a></div>
+  </dialog>
 </body>
 </html>

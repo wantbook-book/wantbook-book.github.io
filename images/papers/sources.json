@@ -1,0 +1,181 @@
+[
+  {
+    "id": "ninja",
+    "source": "https://arxiv.org/html/2611.10027v1",
+    "asset_source": "https://arxiv.org/html/2611.10027v1/framework.png",
+    "figure": 1,
+    "caption": "NINJA overview: navigator and inspectors, with the agentic fine-tuning pipeline.",
+    "output": "images/papers/ninja.webp",
+    "extraction": "Original arXiv HTML figure; lossless WebP encoding.",
+    "width": 1707,
+    "height": 705,
+    "bytes": 237194,
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "id": "ruscarl",
+    "source": "https://arxiv.org/html/2508.16949v2",
+    "asset_source": "https://arxiv.org/html/2508.16949v2/Rusca_framework.png",
+    "figure": 2,
+    "caption": "RuscaRL framework: rubric scaffolding, rubric-based rewards, and progressive scaffolding removal.",
+    "output": "images/papers/ruscarl.webp",
+    "extraction": "Original arXiv HTML figure; lossless WebP encoding.",
+    "width": 1687,
+    "height": 765,
+    "bytes": 328144,
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "id": "hir",
+    "source": "https://arxiv.org/pdf/2512.23457",
+    "html_source": "https://arxiv.org/html/2512.23457v1",
+    "figure": 2,
+    "pdf_page": 3,
+    "caption": "HiR framework: select failed samples, rewrite instructions, and replay them during reinforcement learning.",
+    "output": "images/papers/hir.webp",
+    "extraction": "PDF page rendered at 3.4x and cropped to figure bounding box (53,75,543,234) PDF points. Lossless WebP encoding.",
+    "width": 1666,
+    "height": 541,
+    "bytes": 146234,
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "id": "rftt",
+    "source": "https://arxiv.org/pdf/2502.13389",
+    "html_source": "https://arxiv.org/html/2502.13389v1",
+    "figure": 1,
+    "pdf_page": 3,
+    "caption": "RFTT overview: functional tree search, cross verification, branch merging, and two-phase training.",
+    "output": "images/papers/rftt.webp",
+    "extraction": "PDF page rendered at 3.4x and cropped to figure bounding box (53,65,543,234) PDF points. Lossless WebP encoding.",
+    "width": 1666,
+    "height": 575,
+    "bytes": 147238,
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "source": "https://arxiv.org/html/2604.11424v2",
+    "figure": 3,
+    "caption": "Figure 3: Overview of the SASLM framework. Left: Intent-aware architecture with VIB-driven expressive modulation. Right: Three-stage realization-aware training paradigm, progressing from acoustic bootstrapping to closed-loop self-reward optimization.",
+    "original_asset": "https://arxiv.org/html/2604.11424v2/framework.png",
+    "output": "images/papers/saslm.webp",
+    "width": 1381,
+    "height": 754,
+    "bytes": 125560,
+    "id": "saslm",
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "id": "mango",
+    "source": "https://media.eventhosts.cc/Conferences/ECCV2026/pdfs/843.pdf",
+    "publication_source": "https://link.springer.com/chapter/10.1007/978-3-032-37520-9_10",
+    "figure": 2,
+    "pdf_page": 5,
+    "caption": "Figure 2: Overall framework for MANGO. (a) Model architecture with Functionality-Oriented Transformers (FoT). (b) Paint-CoT for image generation.",
+    "output": "images/papers/mango.webp",
+    "extraction": "Original PDF page rendered with macOS PDFKit at 4.8x and cropped to figure bounds. Lossless WebP encoding; source content unchanged.",
+    "rendered_page_pixels": [
+      2937,
+      3801
+    ],
+    "crop_bounds_pixels": [
+      640,
+      552,
+      2312,
+      1720
+    ],
+    "width": 1672,
+    "height": 1168,
+    "bytes": 416486,
+    "retrieved_on": "2026-11-24"
+  },
+  {
+    "source": "https://arxiv.org/pdf/2503.01298v3",
+    "figure": 2,
+    "caption": "Figure 2: Overall Framework for FoX. (a) The illustration of architecture, highlighting FoXperts as the core component. (b) The illustration of MCoT approach for enhanced image generation.",
+    "original_asset": null,
+    "output": "images/papers/fox.webp",
+    "width": 1630,
+    "height": 1123,
+    "bytes": 295726,
+    "pdf_page": 3,
+    "crop_bounds_pdf_points": [
+      54,
+      68,
+      543,
+      405
+    ],
+    "id": "fox",
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "source": "https://arxiv.org/pdf/2503.11701v1",
+    "figure": 1,
+    "caption": "A taxonomy of DPO. Four branches: data strategy, learning framework, constraint mechanism, and model property.",
+    "original_asset": null,
+    "output": "images/papers/dpo-survey.webp",
+    "width": 1726,
+    "height": 1450,
+    "bytes": 291238,
+    "pdf_page": 2,
+    "crop_bounds_pdf_points": [
+      47,
+      42,
+      565,
+      477
+    ],
+    "render_notes": "PDF link annotation borders hidden during rasterization; source figure content unchanged.",
+    "id": "dpo-survey",
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "source": "https://arxiv.org/pdf/2505.20347v2",
+    "figure": 1,
+    "caption": "Figure 1 : An overview of the proposed SeRL framework, which comprises two core components: (1) Self-Instruction, where the model generates new instructions from a small initial dataset and applies a robust online filtering strategy to ensure instruction quality, diversity, and appropriate difficulty. (2) Self-Rewarding, where the model performs unsupervised RL training using a majority-voting reward mechanism without relying on verifiable labels.",
+    "original_asset": null,
+    "output": "images/papers/serl.webp",
+    "width": 1314,
+    "height": 1074,
+    "bytes": 204754,
+    "pdf_page": 3,
+    "crop_bounds_pdf_points": [
+      109,
+      70,
+      503,
+      392
+    ],
+    "id": "serl",
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "source": "https://arxiv.org/html/2405.11143v6",
+    "figure": 1,
+    "caption": "Figure 1: Overall architecture of OpenRLHF. The system assigns GPUs to two primary roles: rollout engines dedicated to response generation and actor engines responsible for computing log-probabilities and model training. OpenRLHF leverages Ray for distributed scheduling, integrates vLLM to achieve efficient response rollout with low GPU memory usage, and employs DeepSpeed ZeRO for 3D parallelism (including tensor, data, and sequence parallelism) to enable efficient training. The underlying models are instantiated with flexible Transformer architectures, making the system easy to extend and adapt for diverse scenarios.",
+    "original_asset": "https://arxiv.org/html/2405.11143v6/img/Openrlhf.png",
+    "output": "images/papers/openrlhf.webp",
+    "width": 1800,
+    "height": 1013,
+    "bytes": 101292,
+    "id": "openrlhf",
+    "retrieved_on": "2026-11-17"
+  },
+  {
+    "source": "https://arxiv.org/pdf/2407.15325v3",
+    "figure": 1,
+    "caption": "Figure 1: An overview of the proposed Odyssey framework. Odyssey consists of three key components: (1) a fine-tuned LLaMA-3 model trained on a large-scale question-answering dataset; (2) an interactive agent equipped with an extensive open-world skill library; (3) a novel agent capability benchmark encompassing a variety of tasks.",
+    "original_asset": null,
+    "output": "images/papers/odyssey.webp",
+    "width": 1620,
+    "height": 666,
+    "bytes": 128358,
+    "pdf_page": 2,
+    "crop_bounds_pdf_points": [
+      64,
+      53,
+      550,
+      253
+    ],
+    "id": "odyssey",
+    "retrieved_on": "2026-11-17"
+  }
+]
